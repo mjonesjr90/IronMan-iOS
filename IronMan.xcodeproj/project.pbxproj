@@ -14,6 +14,8 @@
 		992F0CF9203E14C7006A7792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 992F0CF7203E14C7006A7792 /* LaunchScreen.storyboard */; };
 		992F0D04203E14C8006A7792 /* IronManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992F0D03203E14C8006A7792 /* IronManTests.swift */; };
 		992F0D0F203E14C8006A7792 /* IronManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992F0D0E203E14C8006A7792 /* IronManUITests.swift */; };
+		9980B9012040928D0013CABF /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980B9002040928D0013CABF /* AdTableViewCell.swift */; };
+		9980B90320409CEA0013CABF /* AdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980B90220409CEA0013CABF /* AdTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		992F0D0A203E14C8006A7792 /* IronManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		992F0D0E203E14C8006A7792 /* IronManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronManUITests.swift; sourceTree = "<group>"; };
 		992F0D10203E14C8006A7792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9980B9002040928D0013CABF /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
+		9980B90220409CEA0013CABF /* AdTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +101,11 @@
 		992F0CED203E14C7006A7792 /* IronMan */ = {
 			isa = PBXGroup;
 			children = (
+				992F0CF2203E14C7006A7792 /* Main.storyboard */,
 				992F0CEE203E14C7006A7792 /* AppDelegate.swift */,
 				992F0CF0203E14C7006A7792 /* ViewController.swift */,
-				992F0CF2203E14C7006A7792 /* Main.storyboard */,
+				9980B90220409CEA0013CABF /* AdTableViewController.swift */,
+				9980B9002040928D0013CABF /* AdTableViewCell.swift */,
 				992F0CF5203E14C7006A7792 /* Assets.xcassets */,
 				992F0CF7203E14C7006A7792 /* LaunchScreen.storyboard */,
 				992F0CFA203E14C7006A7792 /* Info.plist */,
@@ -259,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9980B90320409CEA0013CABF /* AdTableViewController.swift in Sources */,
+				9980B9012040928D0013CABF /* AdTableViewCell.swift in Sources */,
 				992F0CF1203E14C7006A7792 /* ViewController.swift in Sources */,
 				992F0CEF203E14C7006A7792 /* AppDelegate.swift in Sources */,
 			);
