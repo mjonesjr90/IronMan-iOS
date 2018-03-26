@@ -17,7 +17,7 @@ class AdViewController: UIViewController, MMInlineDelegate {
     //MARK: MM Properties
     var adType: AdType!
     var inlineAd: MMInlineAd!
-//    var mpAdView: MPAdView!
+    var mpAdView: MPAdView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,14 @@ class AdViewController: UIViewController, MMInlineDelegate {
             self.adContainer!.addSubview(self.inlineAd.view)
             self.inlineAd.request(nil)
         }
-//        if adType.ssp == "mopub" {
-//            os_log("This is a MoPub request", log: OSLog.default,type: .debug)
-//            self.title = adType.name
-//            self.mpAdView = MPAdView(adUnitId: adType.id, size: adType.size)
-//            self.mpAdView.delegate = self
-//            self.adContainer!.addSubview(self.mpAdView)
-//            self.mpAdView.loadAd()
-//        }
+        if adType.ssp == "mopub" {
+            os_log("This is a MoPub request", log: OSLog.default,type: .debug)
+            self.title = adType.name
+            self.mpAdView = MPAdView(adUnitId: adType.id, size: adType.size)
+            self.mpAdView.delegate = self
+            self.adContainer!.addSubview(self.mpAdView)
+            self.mpAdView.loadAd()
+        }
         
     }
 
