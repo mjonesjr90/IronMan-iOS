@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import os.log
 
 class AdTableViewController: UITableViewController {
 
     // MARK: Properties
-    var adTypes = [String]()
+    var adTypes = [AdType]()
     
     
     // MARK: Overridden Functions
@@ -35,7 +36,14 @@ class AdTableViewController: UITableViewController {
 
     // MARK: Private Methods
     private func loadAdTypes() {
-        adTypes += ["Banner", "MREC", "Interstitial", "Native", "MoPub Banner", "DFP Banner", "Super Auction Banner", "Super Auction Banner - MoPub", "Super Auction MREC - MoPub", "Super Auction Banner - DFP"]
+        let banner = AdType(name:"Banner", id:"banner_homescreen", size:CGSize(width: 320, height: 50), hb:false, ssp: "onemobile")
+        let mrec = AdType(name:"Medium Rectangle", id:"mrec", size:CGSize(width: 300, height: 250), hb:false, ssp: "onemobile")
+        let sa_banner = AdType(name:"Super Auction Banner", id:"banner_homescreen_sa", size:CGSize(width: 320, height: 50), hb:true, ssp: "onemobile")
+        let mopub_banner = AdType(name:"MoPub Banner", id:"8cbf99596fe4403abc52b5cae808a8f5", size:CGSize(width: 320, height: 50), hb:true, ssp: "mopub")
+        
+        adTypes += [banner, mrec, sa_banner, mopub_banner]
+        
+        //adTypes += ["Banner", "MREC", "Interstitial", "Native", "MoPub Banner", "DFP Banner", "Super Auction Banner", "Super Auction Banner - MoPub", "Super Auction MREC - MoPub", "Super Auction Banner - DFP"]
     }
     
     
@@ -61,7 +69,7 @@ class AdTableViewController: UITableViewController {
         let adType = adTypes[indexPath.row]
 
         // Configure the cell...
-        cell.adTypeLabel.text = adType
+        cell.adTypeLabel.text = adType.name
 
         return cell
     }
@@ -101,14 +109,37 @@ class AdTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? ""){
+        case "ShowAd":
+            os_log("Attempting to show ad", log: OSLog.default,type: .debug)
+            
+            // Get the destination view controller
+            guard let adViewController = segue.destination as? AdViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            // Get the selected cell (ad type)
+            guard let selectedAdCell = sender as? AdTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            // Get the indexpath of the cell (ad type)
+            guard let  indexPath = tableView.indexPath(for: selectedAdCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedAdType = adTypes[indexPath.row]
+            
+            //Set ad type of view controller to the correct ad type
+            adViewController.adType = selectedAdType
+        default:
+            fatalError("Undexpected segue identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
 
 }

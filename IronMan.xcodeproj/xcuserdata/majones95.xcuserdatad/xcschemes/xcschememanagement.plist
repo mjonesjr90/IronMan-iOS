@@ -6,8 +6,28 @@
 	<dict>
 		<key>IronMan.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>992F0CEA203E14C7006A7792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>992F0CFE203E14C8006A7792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>992F0D09203E14C8006A7792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

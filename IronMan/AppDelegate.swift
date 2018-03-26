@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        MMSDK.setLogLevel(MMLogLevel.debug)
+        let appSettings = MMAppSettings()
+        appSettings.siteId = "studytime"
+        MMSDK.sharedInstance().initialize(with: appSettings, with: nil)
         return true
     }
 
