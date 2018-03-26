@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class AdViewController: UIViewController, MMInlineDelegate {
+class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate{
 
     //MARK: Properties
     @IBOutlet weak var adContainer: UIView!
