@@ -1,1 +1,0 @@
-../../../MoPub-OnebyAOL-Adapters/OnebyAOL/MMAdapterVersion.h

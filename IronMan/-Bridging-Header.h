@@ -51,7 +51,7 @@
 #import "MPRewardedVideo.h"
 #import "MPRewardedVideoReward.h"
 #import "MPRewardedVideoCustomEvent.h"
-//#import "MPRewardedVideoError.h"
+#import "MPRewardedVideoError.h"
 
 #ifndef _Bridging_Header_h
 #define _Bridging_Header_h

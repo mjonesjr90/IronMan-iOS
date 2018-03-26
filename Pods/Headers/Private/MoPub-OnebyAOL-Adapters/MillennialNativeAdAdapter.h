@@ -1,1 +1,0 @@
-../../../MoPub-OnebyAOL-Adapters/OnebyAOL/MillennialNativeAdAdapter.h
