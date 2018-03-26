@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/MMAdSDK/mm-ios-ad-sdk-6.6.0-20170915-1413" "${PODS_ROOT}/mopub-ios-sdk/MoPubSDK/Viewability/MOAT"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MMAdSDK" "${PODS_ROOT}/Headers/Public/MoPub-OnebyAOL-Adapters" "${PODS_ROOT}/Headers/Public/mopub-ios-sdk"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MoPub-OnebyAOL-Adapters" "${PODS_CONFIGURATION_BUILD_DIR}/mopub-ios-sdk" "${PODS_ROOT}/mopub-ios-sdk/MoPubSDK/Viewability/Avid"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/MMAdSDK" -isystem "${PODS_ROOT}/Headers/Public/MoPub-OnebyAOL-Adapters" -isystem "${PODS_ROOT}/Headers/Public/mopub-ios-sdk"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Avid-mopub-3.6.1" -l"MoPub-OnebyAOL-Adapters" -l"mopub-ios-sdk" -l"xml2" -framework "AVFoundation" -framework "AdSupport" -framework "AudioToolbox" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreTelephony" -framework "EventKit" -framework "EventKitUI" -framework "Foundation" -framework "MMAdSDK" -framework "MPUBMoatMobileAppKit" -framework "MediaPlayer" -framework "MessageUI" -framework "QuartzCore" -framework "SafariServices" -framework "SystemConfiguration" -framework "UIKit" -weak_framework "AdSupport" -weak_framework "StoreKit" -weak_framework "WebKit"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
