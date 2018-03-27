@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:IronMan.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

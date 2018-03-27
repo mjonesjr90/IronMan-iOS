@@ -27,11 +27,30 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
         if adType.ssp == "onemobile" {
             os_log("This is a ONE Mobile request", log: OSLog.default,type: .debug)
             self.title = adType.name
-            self.inlineAd = MMInlineAd(placementId: adType.id, size: adType.size)
-            self.inlineAd.delegate = self
-            self.inlineAd.refreshInterval = 30
-            self.adContainer!.addSubview(self.inlineAd.view)
-            self.inlineAd.request(nil)
+            
+            if adType.hb == true{
+                MMInlineAd.requestBid(forPlacementId: adType.id,
+                                      adSize: self.mmAdSize(size: adType.size),
+                                      requestInfo: nil,
+                                      completion: { (bid: String?, error: Error?) -> Void in
+                                        if bid != nil {
+                                            os_log("ONE Mobile bid was received", log: OSLog.default,type: .debug)
+                                            self.inlineAd = MMInlineAd(placementId: self.adType.id, size: self.adType.size)
+                                            self.inlineAd.delegate = self
+                                            self.inlineAd.refreshInterval = 30
+                                            self.adContainer!.addSubview(self.inlineAd.view)
+                                            self.inlineAd.request(nil)
+                                        } else {
+                                            os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
+                                        }
+                })
+            } else {
+                self.inlineAd = MMInlineAd(placementId: adType.id, size: adType.size)
+                self.inlineAd.delegate = self
+                self.inlineAd.refreshInterval = 30
+                self.adContainer!.addSubview(self.inlineAd.view)
+                self.inlineAd.request(nil)
+            }
         }
         if adType.ssp == "mopub" {
             os_log("This is a MoPub request", log: OSLog.default,type: .debug)
@@ -44,6 +63,16 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
         
     }
 
+    //Returns MM AD SIZE GIVEN cgsIZE
+    func mmAdSize(size: CGSize) -> MMInlineAdSize{
+        if size.width == 320 && size.height == 50 {
+            return MMInlineAdSize.banner
+        }
+        else {
+            return MMInlineAdSize.mediumRectangle
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,15 +84,15 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
     }
 
     //MARK: MoPub Ad listener methods
-//    func adViewDidLoadAd(_ view: MPAdView!) {
-//        print("Inline request succeeded.")
-//        os_log("Inline request succeeded", log: OSLog.default, type: .debug)
-//    }
-//    
-//    func adViewDidFail(toLoadAd view: MPAdView!) {
-//        print("Inline request failed.")
-//        os_log("Inline request failed", log: OSLog.default, type: .debug)
-//    }
+    func adViewDidLoadAd(_ view: MPAdView!) {
+        print("Inline request succeeded.")
+        os_log("Inline request succeeded", log: OSLog.default, type: .debug)
+    }
+    
+    func adViewDidFail(toLoadAd view: MPAdView!) {
+        print("Inline request failed.")
+        os_log("Inline request failed", log: OSLog.default, type: .debug)
+    }
     
     //MARK: MMSDK Ad listener methods
     func inlineAdRequestDidSucceed(_ ad: MMInlineAd) {

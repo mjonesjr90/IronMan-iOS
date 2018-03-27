@@ -30,7 +30,6 @@
 		9980B920204484110013CABF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9980B911204484110013CABF /* AudioToolbox.framework */; };
 		9980B921204484110013CABF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9980B912204484110013CABF /* CoreTelephony.framework */; };
 		9980B922204484110013CABF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9980B913204484110013CABF /* MessageUI.framework */; };
-		9980B92820449EA90013CABF /* MMAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9980B92720449EA90013CABF /* MMAdSDK.framework */; };
 		9980B92B2045B1660013CABF /* AdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980B92A2045B1660013CABF /* AdType.swift */; };
 		99B84448206954F000001CA1 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992F0CF0203E14C7006A7792 /* AdViewController.swift */; };
 		99C3F2D42069915600F4BC76 /* MPBannerAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C3F1312069915600F4BC76 /* MPBannerAdManager.m */; };
@@ -229,6 +228,7 @@
 		99C3F3952069915600F4BC76 /* MPWebView+Viewability.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C3F2D32069915600F4BC76 /* MPWebView+Viewability.m */; };
 		99C3F3972069917200F4BC76 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C3F3962069917200F4BC76 /* WebKit.framework */; };
 		99C3F39C2069950800F4BC76 /* MPMillennialBannerCustomEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C3F39B2069950800F4BC76 /* MPMillennialBannerCustomEvent.m */; };
+		99C3F39F206A8E9D00F4BC76 /* MMAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C3F39E206A8E9D00F4BC76 /* MMAdSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,7 +279,6 @@
 		9980B911204484110013CABF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9980B912204484110013CABF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9980B913204484110013CABF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		9980B92720449EA90013CABF /* MMAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMAdSDK.framework; path = "../mm-ios-ad-sdk-dist-6.7.0/MMAdSDK.framework"; sourceTree = "<group>"; };
 		9980B92920449F5B0013CABF /* -Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "-Bridging-Header.h"; sourceTree = "<group>"; };
 		9980B92A2045B1660013CABF /* AdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdType.swift; sourceTree = "<group>"; };
 		99C3F1302069915600F4BC76 /* MPBannerAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBannerAdManager.h; sourceTree = "<group>"; };
@@ -686,6 +685,7 @@
 		99C3F39A206994E800F4BC76 /* MPMillennialBannerCustomEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPMillennialBannerCustomEvent.h; sourceTree = "<group>"; };
 		99C3F39B2069950800F4BC76 /* MPMillennialBannerCustomEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPMillennialBannerCustomEvent.m; sourceTree = "<group>"; };
 		99C3F39D2069953400F4BC76 /* MMAdapterVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAdapterVersion.h; sourceTree = "<group>"; };
+		99C3F39E206A8E9D00F4BC76 /* MMAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMAdSDK.framework; path = "../mm-ios-ad-sdk-dist-6.7.0/MMAdSDK.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -695,6 +695,7 @@
 			files = (
 				99C3F3972069917200F4BC76 /* WebKit.framework in Frameworks */,
 				9980B914204484110013CABF /* CoreGraphics.framework in Frameworks */,
+				99C3F39F206A8E9D00F4BC76 /* MMAdSDK.framework in Frameworks */,
 				9980B915204484110013CABF /* EventKit.framework in Frameworks */,
 				9980B916204484110013CABF /* EventKitUI.framework in Frameworks */,
 				9980B917204484110013CABF /* CoreLocation.framework in Frameworks */,
@@ -710,7 +711,6 @@
 				9980B920204484110013CABF /* AudioToolbox.framework in Frameworks */,
 				99C3F3922069915600F4BC76 /* MPUBMoatMobileAppKit.framework in Frameworks */,
 				9980B921204484110013CABF /* CoreTelephony.framework in Frameworks */,
-				9980B92820449EA90013CABF /* MMAdSDK.framework in Frameworks */,
 				9980B922204484110013CABF /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,8 +793,8 @@
 		9980B904204484100013CABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99C3F39E206A8E9D00F4BC76 /* MMAdSDK.framework */,
 				99C3F3962069917200F4BC76 /* WebKit.framework */,
-				9980B92720449EA90013CABF /* MMAdSDK.framework */,
 				9980B910204484110013CABF /* AdSupport.framework */,
 				9980B911204484110013CABF /* AudioToolbox.framework */,
 				9980B90F204484110013CABF /* AVFoundation.framework */,

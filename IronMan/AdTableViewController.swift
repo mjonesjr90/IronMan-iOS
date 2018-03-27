@@ -36,14 +36,16 @@ class AdTableViewController: UITableViewController {
 
     // MARK: Private Methods
     private func loadAdTypes() {
-        let banner = AdType(name:"Banner", id:"banner_homescreen", size:CGSize(width: 320, height: 50), hb:false, ssp: "onemobile")
-        let mrec = AdType(name:"Medium Rectangle", id:"mrec", size:CGSize(width: 300, height: 250), hb:false, ssp: "onemobile")
-        let sa_banner = AdType(name:"Super Auction Banner", id:"banner_homescreen_sa", size:CGSize(width: 320, height: 50), hb:true, ssp: "onemobile")
+        
+        // Create adTypes here
+        // This will be loaded into Tableview and populate ViewController upon selection
+        // ssp parameter denotes whether to call onemobile, mopub, dfp, etc.
+        let onemobile_banner = AdType(name:"ONE Mobile Banner", id:"banner_homescreen", size:CGSize(width: 320, height: 50), hb:false, ssp: "onemobile")
+        let onemobile_mrec = AdType(name:"ONE Mobile MREC", id:"mrec", size:CGSize(width: 300, height: 250), hb:false, ssp: "onemobile")
+        let onemobile_sa_banner = AdType(name:"Super Auction Banner", id:"banner_homescreen_sa", size:CGSize(width: 320, height: 50), hb:true, ssp: "onemobile")
         let mopub_banner = AdType(name:"MoPub Banner", id:"8cbf99596fe4403abc52b5cae808a8f5", size:CGSize(width: 320, height: 50), hb:true, ssp: "mopub")
         
-        adTypes += [banner, mrec, sa_banner, mopub_banner]
-        
-        //adTypes += ["Banner", "MREC", "Interstitial", "Native", "MoPub Banner", "DFP Banner", "Super Auction Banner", "Super Auction Banner - MoPub", "Super Auction MREC - MoPub", "Super Auction Banner - DFP"]
+        adTypes += [onemobile_banner, onemobile_mrec, onemobile_sa_banner, mopub_banner]
     }
     
     
