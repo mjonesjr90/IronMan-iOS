@@ -11,7 +11,6 @@ import UIKit
 
 class AdType {
     //MARK: Properties
-    
     var name: String
     var id: String
     var size: CGSize
