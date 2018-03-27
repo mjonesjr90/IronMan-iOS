@@ -21,9 +21,6 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if adType.hb {
-//            //Call RequestBid API
-//        }
         if adType.ssp == "onemobile" {
             os_log("This is a ONE Mobile request", log: OSLog.default,type: .debug)
             self.title = adType.name
