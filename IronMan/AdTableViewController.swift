@@ -43,9 +43,10 @@ class AdTableViewController: UITableViewController {
         let onemobile_banner = AdType(name:"ONE Mobile Banner", id:"banner_homescreen", size:CGSize(width: 320, height: 50), hb:false, ssp: "onemobile")
         let onemobile_mrec = AdType(name:"ONE Mobile MREC", id:"mrec", size:CGSize(width: 300, height: 250), hb:false, ssp: "onemobile")
         let onemobile_sa_banner = AdType(name:"Super Auction Banner", id:"banner_homescreen_sa", size:CGSize(width: 320, height: 50), hb:true, ssp: "onemobile")
-        let mopub_banner = AdType(name:"MoPub Banner", id:"8cbf99596fe4403abc52b5cae808a8f5", size:CGSize(width: 320, height: 50), hb:true, ssp: "mopub")
+        let mopub_banner = AdType(name:"MoPub Banner", id:"8cbf99596fe4403abc52b5cae808a8f5", size:CGSize(width: 320, height: 50), hb:false, ssp: "mopub")
+        let mopub_sa_banner = AdType(name:"Super Auction MoPub Banner", id:"8cbf99596fe4403abc52b5cae808a8f5", partnerId: "banner_homescreen_sa" ,size:CGSize(width: 320, height: 50), hb:true, ssp: "mopub")
         
-        adTypes += [onemobile_banner, onemobile_mrec, onemobile_sa_banner, mopub_banner]
+        adTypes += [onemobile_banner, onemobile_mrec, onemobile_sa_banner, mopub_banner, mopub_sa_banner]
     }
     
     

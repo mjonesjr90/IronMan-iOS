@@ -52,10 +52,29 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
         if adType.ssp == "mopub" {
             os_log("This is a MoPub request", log: OSLog.default,type: .debug)
             self.title = adType.name
-            self.mpAdView = MPAdView(adUnitId: adType.id, size: adType.size)
-            self.mpAdView.delegate = self
-            self.adContainer!.addSubview(self.mpAdView)
-            self.mpAdView.loadAd()
+            
+            if adType.hb == true{
+                MMInlineAd.requestBid(forPlacementId: adType.partnerId!,
+                                      adSize: self.mmAdSize(size: adType.size),
+                                      requestInfo: nil,
+                                      completion: { (bid: String?, error: Error?) -> Void in
+                                        if bid != nil {
+                                            os_log("ONE Mobile bid of was received. Passing to MoPub", log: OSLog.default, type: .debug)
+                                            self.mpAdView = MPAdView(adUnitId: self.adType.id, size: self.adType.size)
+                                            self.mpAdView.keywords = "sa:\(String(describing: bid!))"
+                                            self.mpAdView.delegate = self
+                                            self.adContainer!.addSubview(self.mpAdView)
+                                            self.mpAdView.loadAd()
+                                        } else {
+                                            os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
+                                        }
+                })
+            } else {
+                self.mpAdView = MPAdView(adUnitId: adType.id, size: adType.size)
+                self.mpAdView.delegate = self
+                self.adContainer!.addSubview(self.mpAdView)
+                self.mpAdView.loadAd()
+            }
         }
         
     }
