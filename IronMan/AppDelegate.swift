@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import CoreLocation
+import os.log
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
+    var locationManager = CLLocationManager()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        startLocationUpdates()
         // Override point for customization after application launch.
         MMSDK.setLogLevel(MMLogLevel.debug)
         let appSettings = MMAppSettings()
@@ -45,6 +49,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func startLocationUpdates() {
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+        locationManager.requestWhenInUseAuthorization();
+        locationManager.startUpdatingLocation();
+    }
+    
+    //MARK: Location Update
+    private func locationManager(manager: CLLocationManager, didFailWithError error: Error) {
+        os_log("Error to update location", log: OSLog.default,type: .debug);
+    }
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined: break
+        case .restricted: break
+        case .denied:
+            NSLog("do some error handling")
+            break
+        default:
+            locationManager.startUpdatingLocation()
+        }
+    }
 
 }
 

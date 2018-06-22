@@ -26,20 +26,17 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
             self.title = adType.name
             
             if adType.hb == true{
-                MMInlineAd.requestBid(forPlacementId: adType.id,
-                                      adSize: self.mmAdSize(size: adType.size),
-                                      requestInfo: nil,
-                                      completion: { (bid: String?, error: Error?) -> Void in
-                                        if bid != nil {
-                                            os_log("ONE Mobile bid was received", log: OSLog.default,type: .debug)
-                                            self.inlineAd = MMInlineAd(placementId: self.adType.id, size: self.adType.size)
-                                            self.inlineAd.delegate = self
-                                            self.inlineAd.refreshInterval = 30
-                                            self.adContainer!.addSubview(self.inlineAd.view)
-                                            self.inlineAd.request(nil)
-                                        } else {
-                                            os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
-                                        }
+                MMInlineAd.requestBid(forPlacementId: adType.id, adSize: self.mmAdSize(size: adType.size), requestInfo: nil, completion: { (bid: String?, error: Error?) -> Void in
+                    if bid != nil {
+                        os_log("ONE Mobile bid was received", log: OSLog.default,type: .debug)
+                        self.inlineAd = MMInlineAd(placementId: self.adType.id, size: self.adType.size)
+                        self.inlineAd.delegate = self
+                        self.inlineAd.refreshInterval = 30
+                        self.adContainer!.addSubview(self.inlineAd.view)
+                        self.inlineAd.request(nil)
+                    } else {
+                        os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
+                    }
                 })
             } else {
                 self.inlineAd = MMInlineAd(placementId: adType.id, size: adType.size)
@@ -54,20 +51,17 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
             self.title = adType.name
             
             if adType.hb == true{
-                MMInlineAd.requestBid(forPlacementId: adType.partnerId!,
-                                      adSize: self.mmAdSize(size: adType.size),
-                                      requestInfo: nil,
-                                      completion: { (bid: String?, error: Error?) -> Void in
-                                        if bid != nil {
-                                            os_log("ONE Mobile bid of was received. Passing to MoPub", log: OSLog.default, type: .debug)
-                                            self.mpAdView = MPAdView(adUnitId: self.adType.id, size: self.adType.size)
-                                            self.mpAdView.keywords = "sa:\(String(describing: bid!))"
-                                            self.mpAdView.delegate = self
-                                            self.adContainer!.addSubview(self.mpAdView)
-                                            self.mpAdView.loadAd()
-                                        } else {
-                                            os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
-                                        }
+                MMInlineAd.requestBid(forPlacementId: adType.partnerId!, adSize: self.mmAdSize(size: adType.size), requestInfo: nil, completion: { (bid: String?, error: Error?) -> Void in
+                    if bid != nil {
+                        os_log("ONE Mobile bid of was received. Passing to MoPub", log: OSLog.default, type: .debug)
+                        self.mpAdView = MPAdView(adUnitId: self.adType.id, size: self.adType.size)
+                        self.mpAdView.keywords = "sa:\(String(describing: bid!))"
+                        self.mpAdView.delegate = self
+                        self.adContainer!.addSubview(self.mpAdView)
+                        self.mpAdView.loadAd()
+                    } else {
+                        os_log("ONE Mobile bid request failed", log: OSLog.default,type: .debug)
+                    }
                 })
             } else {
                 self.mpAdView = MPAdView(adUnitId: adType.id, size: adType.size)
@@ -75,6 +69,11 @@ class AdViewController: UIViewController, MMInlineDelegate, MPAdViewDelegate {
                 self.adContainer!.addSubview(self.mpAdView)
                 self.mpAdView.loadAd()
             }
+        }
+        if adType.ssp == "admob" {
+            os_log("This is an AdMob request", log: OSLog.default,type: .debug)
+            self.title = adType.name
+    
         }
         
     }
